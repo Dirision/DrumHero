@@ -108,20 +108,22 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 Play those drums
 
 &lt;&lt;link &quot;Alright I&#39;ll play those drums&quot;&gt;&gt;
-	&lt;&lt;if time() % 667 lt 200&gt;&gt;
+	&lt;&lt;if (time() % 667) lt 300&gt;&gt;
 		&lt;&lt;audio metronome1 stop&gt;&gt;
 		&lt;&lt;goto &quot;audition1&quot;&gt;&gt;
 	&lt;&lt;else&gt;&gt;
-		/*
+		
 		&lt;&lt;audio metronome1 stop&gt;&gt;
 		&lt;&lt;goto &quot;audition0Fail&quot;&gt;&gt;
-		*/
-		UI.alert(time())
+		
+		
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/link&gt;&gt; 
 
 
-</tw-passagedata><tw-passagedata pid="2" name="audition1" tags="" position="465,558" size="100,100">Nice beat! Keep it going</tw-passagedata><tw-passagedata pid="3" name="Intro" tags="" position="125,125" size="100,100">&lt;&lt;cacheaudio &quot;metronome1&quot; &quot;./Audio/metronome1.mp3&quot;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="2" name="audition1" tags="" position="460,476" size="100,100">&lt;&lt;audio beat1 loop play&gt;&gt;
+Nice beat! Keep it going</tw-passagedata><tw-passagedata pid="3" name="Intro" tags="" position="125,125" size="100,100">&lt;&lt;cacheaudio &quot;metronome1&quot; &quot;./Audio/metronome1.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;beat1&quot; &quot;./Audio/beat1.mp3&quot;&gt;&gt;
 
 It has been quite some time since you played in a band, if you could even
 consider it a band
@@ -135,7 +137,7 @@ Close!
 Play to the beat of the music!
 
 &lt;&lt;link &quot;Play those drums&quot;&gt;&gt;
-	&lt;&lt;if time() % 667 lt 200&gt;&gt;
+	&lt;&lt;if(time() % 667) lt 300&gt;&gt;
 		&lt;&lt;audio metronome1 stop&gt;&gt;
 		&lt;&lt;goto &quot;audition1&quot;&gt;&gt;
 
