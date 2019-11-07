@@ -100,7 +100,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Drum Hero" startnode="12" creator="Twine" creator-version="2.3.5" ifid="560037A2-ABEE-42A6-A95A-C10FC981F3FE" zoom="1" format="SugarCube" format-version="2.30.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body{
+	<tw-storydata name="Drum Hero" startnode="14" creator="Twine" creator-version="2.3.5" ifid="560037A2-ABEE-42A6-A95A-C10FC981F3FE" zoom="1" format="SugarCube" format-version="2.30.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body{
  background-color: #800000; 
  color: white;
  font-size: 115%; 
@@ -126,8 +126,10 @@ body.neighborhood {
 </script><tw-passagedata pid="1" name="audition0" tags="intro-beat" position="806,361" size="200,100">&lt;&lt;audio metronome1 loop play&gt;&gt;
 Steven comes by one day, ready to see if you still have the drumming talent
 
-Play to the beat
-&lt;&lt;link &quot;Play the drums&quot;&gt;&gt;
+
+A metronome is played in the room
+Play to the beat 
+&lt;&lt;link &quot;Play&quot;&gt;&gt;
 	/*
 	&lt;&lt;if (time() % 667) lt &gt;&gt;
 	&lt;&lt;set t to  &gt;&gt; 
@@ -279,7 +281,7 @@ This Game Is Not Playable Without Sound!
 Please turn up your speakers or use headphones
 
 
-[[On with the show|Intro]]</tw-passagedata><tw-passagedata pid="13" name="practice0" tags="" position="1267,327" size="100,100">&lt;&lt;audio metronome2 loop play&gt;&gt;
+[[On with the show|Intro]]</tw-passagedata><tw-passagedata pid="13" name="practice0" tags="" position="1265,326" size="100,100">&lt;&lt;audio metronome2 loop play&gt;&gt;
 
 Remember to play to the beat
 
@@ -294,7 +296,7 @@ Remember to play to the beat
 	
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/link&gt;&gt; 
-</tw-passagedata><tw-passagedata pid="14" name="practiceIntro" tags="" position="1268,192" size="100,100">
+</tw-passagedata><tw-passagedata pid="14" name="practiceIntro" tags="" position="1260,192" size="100,100">
 
 &lt;&lt;cacheaudio &quot;metronome2&quot;  &quot;./Audio/practice/metronome2.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;beat2&quot;  &quot;./Audio/practice/beat2.mp3&quot;&gt;&gt;
@@ -303,22 +305,51 @@ Remember to play to the beat
 &lt;&lt;cacheaudio &quot;finale2&quot;  &quot;./Audio/practice/finale2.mp3&quot;&gt;&gt;
 
 
-[[Play a groovy beat|practice0]]</tw-passagedata><tw-passagedata pid="15" name="practice1" tags="" position="1265,462" size="100,100">&lt;&lt;audio beat2 loop play&gt;&gt;
-
+[[Play a groovy beat|practice0]]</tw-passagedata><tw-passagedata pid="15" name="practice1" tags="practice1" position="1284,460" size="100,100">&lt;&lt;silently&gt;&gt;
+/*
+&lt;&lt;audio beat2 loop play&gt;&gt; 
+*/
+&lt;&lt;audio beat2 play&gt;&gt; 
+&lt;&lt;repeat 4s&gt;&gt;
+&lt;&lt;audio beat2 stop&gt;&gt; 
+&lt;&lt;audio beat2 play&gt;&gt; 
+&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
+Practice 1
+/*
 &lt;&lt;link &quot;Play the drums&quot;&gt;&gt;
-	/*
-	&lt;&lt;if (time() % 667) lt &gt;&gt;
-	&lt;&lt;set t to  &gt;&gt; 
-	*/	
+	&lt;&lt;if time() % 1000 lt 160 &gt;&gt;
+		&lt;&lt;audio beat2 stop&gt;&gt;
+		&lt;&lt;goto &quot;practice3&quot;&gt;&gt;
+	
+	&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;/link&gt;&gt; 
+*/
+
+&lt;&lt;link &quot;Keep playing&quot;&gt;&gt;
 	&lt;&lt;if time() % 1000 lt 160 &gt;&gt;
 		&lt;&lt;audio beat2 stop&gt;&gt;
 		&lt;&lt;goto &quot;practice2&quot;&gt;&gt;
-	&lt;&lt;/if&gt;
+	
+	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/link&gt;&gt; 
-</tw-passagedata><tw-passagedata pid="16" name="practice2" tags="" position="1262,590" size="100,100">practice2 
+
+</tw-passagedata><tw-passagedata pid="16" name="practice2" tags="" position="1302,595" size="100,100">practice2 
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;audio trill1 play&gt;&gt;
-&lt;&lt;timed 2s&gt;&gt; &lt;&lt;audio beat3 loop play&gt;&gt; &lt;&lt;/timed&gt;&gt;
+
+&lt;&lt;timed 2s&gt;&gt; 
+&lt;&lt;audio beat3 play&gt;&gt; 
+&lt;&lt;repeat 4s&gt;&gt;
+&lt;&lt;audio beat3 stop&gt;&gt; 
+&lt;&lt;audio beat3 play&gt;&gt; 
+&lt;&lt;/repeat&gt;&gt;
+/* 
+&lt;&lt;audio beat3 loop play&gt;&gt; 
+*/
+&lt;&lt;/timed&gt;&gt;
+
 &lt;&lt;/silently&gt;&gt;
 &lt;&lt;link &quot;Play the drums&quot;&gt;&gt;
 	&lt;&lt;if time() % 1000 lt 160 &gt;&gt;
@@ -327,14 +358,14 @@ Remember to play to the beat
 	
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/link&gt;&gt; 
-</tw-passagedata><tw-passagedata pid="17" name="practice3" tags="" position="1263,732" size="100,100">&lt;&lt;silently&gt;&gt;
+</tw-passagedata><tw-passagedata pid="17" name="practice3" tags="" position="1337,733" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;audio finale2 play&gt;&gt;
 &lt;&lt;/silently&gt;&gt;
 &quot;Excellent line!&quot; Steven shouts
 
 
 
-[[The Big Show|bigShowIntro]]</tw-passagedata><tw-passagedata pid="18" name="bigShowIntro" tags="" position="1557,194" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name="practiceStart" tags="" position="1272.5,41.5" size="100,100">Well, you did it champ! Finally part of a band, and with your thirst for music quenched, it&#39;s time now to practice with your new friends in music. 
+[[The Big Show|bigShowIntro]]</tw-passagedata><tw-passagedata pid="18" name="bigShowIntro" tags="" position="1557,194" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="19" name="practiceStart" tags="" position="1272,41" size="100,100">Well, you did it champ! Finally part of a band, and with your thirst for music quenched, it&#39;s time now to practice with your new friends in music. 
 
 Steven advises you to [[practice|practiceIntro]] a little drum line, something a little bit slower</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
